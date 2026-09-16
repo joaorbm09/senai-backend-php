@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php include '../includes/header.php'; ?>
+    <main>
+        <br>
+        <form action="" method="post">
+            <label for="nome">Nome: </label>
+            <input type="text" name="nome" id="nome"><br>
+
+            <label for="turma">Turma: </label>
+            <input type="text" name="turma" id="turma"><br>
+
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email"><br>
+
+            <label for="nasc">Nascimento: </label>
+            <input type="date" name="nasc" id="nasc"><br>
+            <br>
+            <label for="ativo">Ativo?</label><br>
+            <input type="radio" name="ativo" id="ativo" value="true">
+            
+            <label for="ativo">Sim!</label>
+            <input type="radio" name="ativo" id="ativo" value="false">
+            <label for="ativo">Não!</label><br>
+
+            <br><input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
+        
+        </form>
+        
+    </main>
+    <?php include '../includes/footer.php'; ?>
+</body>
+</html>
