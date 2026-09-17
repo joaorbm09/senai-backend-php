@@ -1,59 +1,61 @@
 <?php
-
-// Inicia ou recupera a sessao atual do colaborador.
+// Inicia ou recupera a sessão ativa
 session_start();
 
-
-// Processa os dados somente quando o formulario foi enviado.
+// Verifica se os dados vieram do formulário (método POST)
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Guarda o nome e o cargo enviados pelo formulario na sessao.
+    // 1. REQUISITO SESSÃO: Salva o nome e o cargo na sessão
     $_SESSION["user"] = $_POST["nome"];
     $_SESSION["cargo"] = $_POST["cargo"];
 
-    // Guarda o nome em um cookie que expira em 10 segundos.
-    setcookie("nome", $_POST["nome"], time() + 10);
+    // 2. REQUISITO COOKIE: Salva o tema escolhido em um cookie válido por 1 dia (86400 segundos)
+    setcookie("tema", $_POST["tema"], time() + 10);
 }
-
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargo</title>
+    <title>Resultado</title>
 </head>
-
-
 <body>
-    <?php
-    // Inclui o cabecalho comum da atividade.
-    include 'header.php';
+
+    <?php 
+    // Inclusão do 1º arquivo (cabeçalho)
+    include 'header.php'; 
     ?>
 
     <h2>Dados do Colaborador</h2>
 
     <?php
-    // REQUISITO SESSÃO: Exibe o nome e o cargo
-    // Exibe os dados armazenados na sessao.
+    // Exibe os dados armazenados na Sessão
     if (isset($_SESSION["user"])) {
-        echo "Usuário: <strong>" . $_SESSION["user"] . "</strong><br>";
-        echo "Cargo: <strong>" . $_SESSION["cargo"] . "</strong><br>";
+        echo "<p>Usuário (Sessão): <strong>" . $_SESSION["user"] . "</strong></p>";
+        echo "<p>Cargo (Sessão): <strong>" . $_SESSION["cargo"] . "</strong></p>";
+    } else {
+        echo "<p>Nenhum usuário salvo na sessão.</p>";
     }
 
-    // Exibe o nome salvo no cookie, quando ele estiver disponivel.
-    if (isset($_COOKIE["nome"])) {
-        echo "Cookie Nome: <strong>" . $_COOKIE["nome"] . "</strong><br>";
+    // Exibe o Cookie de preferência de tema
+    // Se o cookie já estiver salvo usamos $_COOKIE, senão usamos o POST enviado
+    if (isset($_COOKIE["tema"])) {
+        echo "<p>Preferência de Tema (Cookie): <strong>" . $_COOKIE["tema"] . "</strong></p>";
+    } elseif (isset($_POST["tema"])) {
+        echo "<p>Preferência de Tema (Cookie recém-criado): <strong>" . $_POST["tema"] . "</strong></p>";
     } else {
-        echo "Cookie Nome não encontrado.<br>";
+        echo "<p>Nenhum cookie de tema encontrado.</p>";
     }
     ?>
 
-    <br>
-    <a href="index.php">Voltar</a>
-</body>
+    <hr>
+    <!-- Link para voltar -->
+    <a href="index.php">Voltar para o Formulário</a>
 
+    <?php 
+    // Inclusão do 2º arquivo (rodapé)
+    include 'footer.php'; 
+    ?>
+
+</body>
 </html>
