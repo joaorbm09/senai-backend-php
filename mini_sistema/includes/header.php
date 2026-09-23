@@ -1,10 +1,17 @@
 <header>
     <nav>
-        <a href="../index.php">Inicio</a>
-        <a href="../app/create.php">Cadastrar</a>
-        <a href="../app/delete.php">Excluir</a>
-        <a href="../app/update.php">Atualizar</a>
-        <a href="../app/select.php">Relatório</a>
-        <a href="../app/select_w.php">Consultar</a>
+        <div>
+
+            <a href="/mini_sistema/index.php">Inicio</a>
+            <a href="/mini_sistema/app/delete.php">Excluir</a>
+            <a href="/mini_sistema/app/create.php">Cadastrar</a>
+            <a href="/mini_sistema/app/update.php">Atualizar</a>
+            <a href="/mini_sistema/app/select.php">Relatório</a>
+            <a href="/mini_sistema/app/select_w.php">Consultar</a>
+        </div>
+        <div>
+            <a href="/mini_sistema/login/login.php">Entrar</a>
+            <a href="/mini_sistema/login/logout.php">Sair</a>
+        </div>
     </nav>
 </header>

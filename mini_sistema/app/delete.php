@@ -1,14 +1,28 @@
 <?php 
-require_once 'connect.php';
-
-$sql = "DELETE FROM  alunos WHERE id =:id";
-$id = 1;
-try{
-    $stmt = $conexao->prepare($sql);
-    $stmt->bindParam(":id" ,$id);
-    $stmt->execute();
-}catch (PDOException $e) {
-    echo "Erro: ". $e->getMessage();
-}
-
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../login/verifica_user.php';
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Excluir</title>
+    </head>
+    <body>
+        <?php include __DIR__ . '/../includes/header.php'?>
+        <h1>Excluir aluno</h1>
+        <form action="" method="post">
+            <label for="id">ID: </label>
+            <input type="number" name="id" id="id">
+            <input type="submit" value="Apagar">
+        </form>
+        <?php 
+        if($_SERVER['REQUEST_METHOD']=="POST"){
+            apagar($conexao, $_POST['id']);
+        }
+        ?>
+    <?php include __DIR__ . '/../includes/footer.php'?>
+</body>
+</html>

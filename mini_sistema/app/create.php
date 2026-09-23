@@ -1,13 +1,17 @@
+<?php 
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../login/verifica_user.php';
+?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <?php include '../includes/header.php'; ?>
+    <?php include __DIR__ . '/../includes/header.php'; ?>
     <main>
         <br>
         <form action="" method="post">
@@ -20,8 +24,8 @@
             <label for="email">Email: </label>
             <input type="email" name="email" id="email"><br>
 
-            <label for="nasc">Nascimento: </label>
-            <input type="date" name="nasc" id="nasc"><br>
+            <label for="nascimento">Nascimento: </label>
+            <input type="date" name="nascimento" id="nascimento"><br>
             <br>
             <label for="ativo">Ativo?</label><br>
             <input type="radio" name="ativo" id="ativo" value="true">
@@ -34,8 +38,14 @@
             <input type="reset" value="Limpar">
         
         </form>
+
+        <?php 
+        if ($_SERVER['REQUEST_METHOD'] == "POST"){
+        cadastrar($conexao, $_POST['nome'], $_POST['turma'], $_POST['nascimento'], $_POST['ativo'], $_POST['email']);
+        }
+        ?>
         
     </main>
-    <?php include '../includes/footer.php'; ?>
+    <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>
