@@ -1,36 +1,48 @@
+<?php
+// Inicia a sessão no topo do arquivo
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <!-- Define a codificacao e adapta o layout para diferentes telas. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forms</title>
+    <title>Formulário</title>
 </head>
 <body>
+
     <?php 
-        // Inclui o cabecalho comum da atividade.
-        include 'header.php';
+    // Inclusão do 1º arquivo (cabeçalho)
+    include 'header.php'; 
     ?>
-  
-    <main>
-        <section>
-                <!-- Envia os dados preenchidos para a pagina de resultado. -->
-                <form action="pag2.php" method="POST">
-                <label>Nome:</label>
-                <!-- O campo e obrigatorio para o envio do formulario. -->
-                <input type="text" name="nome" required><br>
 
-               
-                <label>Cargo:</label>
-                <input type="text" name="cargo" required><br>
+    <h2>Cadastro de Informações</h2>
 
-                <!-- Botao que envia nome e cargo pelo metodo POST. -->
-                <input type="submit" value="Salvar">
-            </form>
-            <hr>
-            <!-- Permite abrir a pagina seguinte diretamente. -->
-            <a href="pag2.php">Pagina 2</a>
-        </section>
-    </main>
+    <!-- Envia os dados via POST para a pag2.php -->
+    <form action="pag2.php" method="POST">
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required><br><br>
+
+        <label>Cargo:</label><br>
+        <input type="text" name="cargo" required><br><br>
+
+        <label>Preferência de Tema:</label><br>
+        <select name="tema">
+            <option value="Claro">Claro</option>
+            <option value="Escuro">Escuro</option>
+        </select><br><br>
+
+        <input type="submit" value="Salvar Dados">
+    </form>
+
+    <hr>
+    <!-- Link para a página 2 -->
+    <a href="pag2.php">Acessar Página 2</a>
+
+    <?php 
+    // Inclusão do 2º arquivo (rodapé)
+    include 'footer.php'; 
+    ?>
+
 </body>
 </html>

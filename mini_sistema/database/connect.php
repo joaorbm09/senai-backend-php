@@ -14,4 +14,5 @@ try {
 } catch (PDOException $e){
     echo "Erro: ". $e->getMessage();
 }
+cadastrar($conexao, $nome, $turma, $nasc, $ativo, $email);
 ?>

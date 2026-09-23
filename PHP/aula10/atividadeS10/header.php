@@ -1,5 +1,5 @@
-    <!-- Cabecalho compartilhado entre as paginas da atividade. -->
-    <header>
-      <!-- Titulo exibido no topo da pagina. -->
-      <h1>Cargo</h1>
-  </header>
+<!-- Arquivo incluído 1: header.php -->
+<header>
+    <h1>Sistema do Colaborador</h1>
+    <hr>
+</header>
