@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS alunos (
 ## Como Executar o Projeto Localmente
 
 ### Pré-requisitos
-1. **PHP 7.4 ou superior** com a extensão `pdo_pgsql` habilitada no `php.ini`.
+1. **PHP 8.5** com a extensão `pdo_pgsql` habilitada no `php.ini`.
 2. **PostgreSQL** instalado e ativo (porta padrão `5432`).
 3. Navegador de internet moderno.
 
