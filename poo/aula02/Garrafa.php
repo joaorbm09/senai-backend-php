@@ -4,18 +4,20 @@
 class Garrafa
 {
     // atributos privados:
-    private $material;
-    private $tamanho;
-    private $litros;
-    private $aberta;
+    private string $material;
+    private float $tamanho;
+    private float $litros;
+    private bool $aberta;
+    private bool $status;
 
     // métodos:
-    public function __construct($m, $t)
+    public function __construct(string $m, float $t, float $l, bool $a, bool $s)
     {
         $this->material = $m;
         $this->tamanho = $t;
-        $this->litros = 0.0;
-        $this->aberta = false;
+        $this->litros = $l;
+        $this->aberta = $a;
+        $this->status = $s;
     }
 
     // metodos acessores (getter e setter) para o material:
@@ -23,7 +25,7 @@ class Garrafa
     {
         return $this->material;
     }
-    public function setMaterial($m)
+    public function setMaterial(string $m)
     {
         $this->material = $m;
     }
@@ -33,7 +35,7 @@ class Garrafa
     {
         return $this->tamanho;
     }
-    public function setTamanho($t)
+    public function setTamanho(float $t)
     {
         $this->tamanho = $t;
     }
@@ -43,9 +45,19 @@ class Garrafa
     {
         return $this->litros;
     }
-    public function setLitros($l)
+    public function setLitros(float $l)
     {
         $this->litros = $l;
+    }
+
+    //metodos acessores (getter e setter) para status:
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    public function setStatus(bool $s)
+    {
+        $this->status = $s;
     }
 
     // MÉTODOS FUNCIONAIS :
@@ -53,17 +65,36 @@ class Garrafa
     //  Abrir e fechar a garrafa
     public function tamparOuDestampar()
     {
-        if ($this->aberta == true) {
-            $this->aberta = false;
+        if ($this->aberta) {
+            $tampa = "Aberta";
         } else {
-            $this->aberta = true;
+            $tampa = "Fechada";
         }
+        echo "Tampa: " . $tampa . "\n";
     }
 
     // Beber líquido
-    public function beber($quantidade)
+    public function encher()
     {
-        $this->litros = $this->litros - $quantidade;
+        if($this->status){
+            echo "A garrafa está cheia.\n";
+        } else {
+            echo "A garrafa está vazia.\n";
+            sleep(2);
+            $this->status = true;
+        }
+    }
+
+    public function beber()
+    {
+        if (!$this->aberta && $this->status) {
+            echo "Bebendo líquido da garrafa...\n";
+            sleep(2);
+            $this->status = false;
+        } else {
+            echo "A garrafa está vazia ou fechada então não é possível beber.\n";
+            $this->status = true;
+        }
     }
 
     public function mostrarGarrafa()
@@ -72,16 +103,14 @@ class Garrafa
         echo "Material: {$this->material}\n";
         echo "Tamanho: {$this->tamanho}\n";
         echo "Litros: {$this->litros}\n";
-        if ($this->aberta) {
-            $estado = "Aberta";
-        } else {
-            $estado = "Fechada";
-        }
-
-        echo "Estado: " . $estado . "\n";
     }
 }
 
-$g1 = new Garrafa("Aço inox", "30 centimetros");
-$g1->setLitros(0.7);
-$g1->mostrarGarrafa();
+$g= new Garrafa("Aço inox", 30.0, 0.7, false, false);
+$g->mostrarGarrafa();
+$g->tamparOuDestampar();
+$g->encher();
+$g->beber();
+$g->beber();
+
+
