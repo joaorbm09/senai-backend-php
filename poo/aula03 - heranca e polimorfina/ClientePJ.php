@@ -12,12 +12,12 @@ class ClientePJ extends Cliente{
     }
 
     public function getDados(){
-        return "Nome: {$this->nome} \nE-mail: {$this->email}\nCNPJ: {$this->cnpj}";
+        return "\nNome: {$this->nome} \nE-mail: {$this->email}\nCNPJ: {$this->cnpj}\n";
     }
 
 
 }
 
-$cnpj = new ClientePJ("joao","joao@gmail.com","419.853.728-35");
+$cnpj = new ClientePJ("joao","joao@gmail.com","000-000-000-0001-12");
 echo $cnpj->getDados();
 ?>

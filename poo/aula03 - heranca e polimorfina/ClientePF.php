@@ -12,7 +12,7 @@ class ClientePF extends Cliente{
     }
 
     public function getDados(){
-        return "Nome: {$this->nome} \nE-mail: {$this->email}\nCPF: {$this->cpf}";
+        return "\nNome: {$this->nome} \nE-mail: {$this->email}\nCPF: {$this->cpf}\n";
     }
 
 
