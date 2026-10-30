@@ -11,7 +11,7 @@ class Cliente{
 
     // Construtor: é um método chamado ao criar um objeto com new.
     public function __construct($nome, $idade, $email){
-        // $this é o próprio objeto. Aqui, guarda o nome recebido no atributo dele. Indicando que um "objeto é esse atributo"
+        // $this é o próprio objeto. Nesse caso guarda o nome recebido no atributo dele. Indicando que um "objeto é esse atributo"
         $this->nome = $nome;
         $this->idade = $idade;
         $this->email = $email;
@@ -82,8 +82,4 @@ class Produtos{
         echo "Preço 2: " . $this->preco2 . "<br>";
     }
 }
-<<<<<<< HEAD
-?>
-=======
-?>
->>>>>>> 418f62f5549a15e61d83ae77a64b4e0bfade9005
+
