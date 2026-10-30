@@ -82,4 +82,8 @@ class Produtos{
         echo "Preço 2: " . $this->preco2 . "<br>";
     }
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 418f62f5549a15e61d83ae77a64b4e0bfade9005

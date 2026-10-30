@@ -45,4 +45,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <p><a href="produtos.php">Ir para cadastro de produtos</a></p>
 <?php endif; ?>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 418f62f5549a15e61d83ae77a64b4e0bfade9005
