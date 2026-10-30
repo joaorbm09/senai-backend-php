@@ -47,8 +47,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     }
     ?>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 418f62f5549a15e61d83ae77a64b4e0bfade9005
+
