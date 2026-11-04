@@ -34,3 +34,28 @@ bom precisariamos ter nome, email e documento para identifica-lo e o pais de ori
 Onde entra o polimorfismo?
 
 Ele entra para definir que varios objetos diferentes um do outro podem ter o mesmo o metodo só que funcionando de maneiras diferentes
+
+## Diagrama de classes
+
+```mermaid
+classDiagram
+Funcionario <| -- FuncionarioCLT
+Funcionario <| -- FuncionarioPJ
+
+class Funcionario{
+    #nome
+    #email
+    +calcularPagamento()
+}
+
+class FuncionarioCLT{
+    -cpf
+    -pay
+    -calcularPagamento()
+}
+class FuncionarioPJ{
+    -cpnj
+    -pay
+    -calcularPagamento()
+}
+```
