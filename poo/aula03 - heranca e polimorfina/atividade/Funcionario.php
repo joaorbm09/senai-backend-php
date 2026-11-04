@@ -13,4 +13,9 @@ class Funcionario {
     public function getDados(){
         return "Nome: {$this->nome} \nE-mail: {$this->email} \n";
     }
+
+    public function calcularPagamento(): float
+{
+    return 0.0;
+}
 }

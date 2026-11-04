@@ -3,7 +3,7 @@ require_once 'Funcionario.php';
 
 class FuncionarioPJ extends Funcionario{
     private string $cnpj;
-    private string $pay;
+    private float $pay;
 
     
     public function __construct(string $n, string $e, float $p, string $c)
@@ -13,10 +13,15 @@ class FuncionarioPJ extends Funcionario{
         $this->cnpj = $c;
     }
 
-    public function calcularPagamento(){
-        return "\nNome: {$this->nome} \nE-mail: {$this->email}\nPagamento: {$this->pay}\nCNPJ: {$this->cnpj}\n";
-    }
+    public function getDados(): string
+{
+    return parent::getDados() . "CNPJ: {$this->cnpj}\n";
+}
 
+public function calcularPagamento(): float
+{
+    return $this->pay;
+}
 
 }
 

@@ -13,11 +13,14 @@ class FuncionarioCLT extends Funcionario{
         $this->pay = $p; 
     }
 
-    public function calcularPagamento(){
-        return "\nNome: {$this->nome} \nE-mail: {$this->email}\nCPF: {$this->cpf}\n Pagamento: {$this->pay}";
+    public function getDados(): string
+    {
+        return parent::getDados() . "CPF: {$this->cpf}\n";
     }
 
-
+    public function calcularPagamento(): float
+    {
+        return $this->pay;
+    }
 }
-
 
