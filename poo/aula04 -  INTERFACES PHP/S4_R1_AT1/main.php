@@ -26,12 +26,14 @@ $pj = new FuncionarioPJ(
     160.00
 );
 
+echo "Funcionario CLT: \n";
 echo $clt->getDados();
 echo 'Salario liquido: ' . $clt->calcularSalario() . "\n";
 echo $clt->contratar() . "\n";
 echo $clt->demitir() . "\n\n";
 
+echo "Funcionario PJ: \n";
 echo $pj->getDados();
-echo $pj->calcularSalario();
+echo 'Salario liquido: ' . $pj->calcularSalario() . "\n";
 echo $pj->contratar() . "\n";
 echo $pj->demitir() . "\n";

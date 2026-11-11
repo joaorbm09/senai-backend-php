@@ -19,9 +19,9 @@ abstract class FuncionarioRepository implements FuncionarioInterface
         $this->status = $contratar;
 
         if ($contratar) {
-            return "{$nome} contratado como {$servico}.";
+            return "{$nome} contratado(a) como {$servico}.";
         }
 
-        return "{$nome} desligado do serviço {$servico}.";
+        return "{$nome} desligado(a) do serviço {$servico}.";
     }
 }
