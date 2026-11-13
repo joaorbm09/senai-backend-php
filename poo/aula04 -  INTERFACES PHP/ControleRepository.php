@@ -2,6 +2,10 @@
 require_once 'ControleInterface.php';
 
 abstract class ControleRepository implements ControleInterface{
+    protected bool $status;
+    protected int $volume;
+    protected int $canal;
+
     #[Override]
 public function io(){
     if($this->status){
