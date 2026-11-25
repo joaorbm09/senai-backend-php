@@ -7,8 +7,8 @@ class Cliente{
     public function __construct($nome, $email, $documento)
     {
         $this->nome = $nome;
-        $this->nome = $email;
-        $this->nome = $documento;
+        $this->email = $email;
+        $this->documento = $documento;
     
     }
     

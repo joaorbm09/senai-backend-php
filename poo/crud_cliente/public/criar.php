@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../repositories/ClienteRepository.php';
 
 if($_POST){
-    $cliente = new CLiente(
+    $cliente = new Cliente(
         $_POST['nome'],
         $_POST['email'],
         $_POST['documento']
@@ -10,6 +10,7 @@ if($_POST){
 
     (new ClienteRepository())->criar($cliente);
     header("Location: index.php");
+    exit();
 }
 ?>
 
@@ -18,7 +19,7 @@ if($_POST){
     
     <input type="email" name="email" id="E-mail" placeholder="E-mail" required><br>
 
-    <input type="text" name="documento" id="documento" placeholder="CPF/CNPJ" require><br>
+    <input type="text" name="documento" id="documento" placeholder="CPF/CNPJ" required><br>
 
     <button>Salvar</button>
 </form>
