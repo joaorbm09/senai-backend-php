@@ -1,0 +1,14 @@
+{
+    "name": "projeto/logitech-sistemas",
+    "description": "Sistema para chamadas com PSR-4 autoloading",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Config\\":"config/"
+        }
+    },
+    "require":{
+        "php":">=8.1"
+    }
+}

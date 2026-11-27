@@ -1,13 +1,26 @@
 <?php 
 declare(strict_types=1);
 
-//captura a URL
-$url = $_GET['url'] ?? 'chamado/index';
+//carrega o autload psr-4 gerado pelo computador
+$autoloadPath = __DIR__ . '/../vendor/autoload.php';
+if(!file_exists($autoloadPath)){
+    http_response_code(500);
+    exit ('Erro: execute "composer dump-autoload" para gerar o autoload');
+}
 
-//limpa a url e transforma em array
-$urlLimpa = trim($url, 'url');
-$segmentos = explode('/', $urlLimpa);
+require_once $autoloadPath;
 
+if(isset($_GET['url'])){
+    $url = $_GET['url'];
+} else {
+    $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/';
+    $url = trim($url, '/');
+    if($url === ''){
+        $url = 'chamado/index';
+    }
+}
+
+$segmentos = explode('/', trim($url, '/'));
 // encontra o nome do controller
 $controllerNome = ucfirst($segmentos[0]) . 'Controller';
 
@@ -18,13 +31,11 @@ $metodo = $segmentos[1] ?? 'index';
 $parametros = array_slice($segmentos, 2);
 
 //econtrar o arquivo
-$caminhoArquivo = __DIR__ . "/../app/Controllers/{$controllerNome}.php";
+$caminhoArquivo = "App\\Controllers\\{$controllerNome}.php";
 
 //valida os controllers, metodos e parametro
 if(file_exists($caminhoArquivo)){
-    require_once $caminhoArquivo;
-    if(class_exists($controllerNome)){
-        $controller = new $controllerNome();
+        $controller = new $caminhoArquivo();
         if(method_exists($controller, $metodo)){
             call_user_func_array([$controller, $metodo], $parametros);
         } else{
@@ -35,8 +46,4 @@ if(file_exists($caminhoArquivo)){
         http_response_code(500);
         echo "<h1?>Erro 500</h1><p> Classe {$controllerNome} mal configurado</p>";
     }
-} else {
-    http_response_code(404);
-    echo "<h1> Erro 404</h1><p> Página ou recurso {$segmentos[0]} não encontrado</p>";
-}
 ?>

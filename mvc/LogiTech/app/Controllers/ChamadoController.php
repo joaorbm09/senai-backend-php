@@ -1,6 +1,8 @@
 <?php 
 declare(strict_types=1);
 
+namespace App\Controllers;
+
 class ChamadoController{
     public function index(): void{
         echo "<h2>LogiTech Sistemas - Listagem de chamados </h2>";
